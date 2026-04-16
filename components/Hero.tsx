@@ -155,10 +155,6 @@ export default function Hero() {
               </div>
 
               <h1 className="font-poppins text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.0] mb-5 tracking-tight">
-                <span className="text-slate-900">{h.headline1}</span>
-                <br />
-                <span className="text-gradient">{h.headline2}</span>
-                <br />
                 <span className="text-slate-900">{h.headline3}</span>{" "}
                 <span className="text-gradient">{h.headline4}</span>
               </h1>
@@ -245,7 +241,7 @@ export default function Hero() {
                 className="relative rounded-3xl overflow-hidden shadow-2xl"
               >
                 <Image
-                  src="/kickbox.png"
+                  src="/padel.png"
                   alt="Kickboxers vinden via Sportli — All Your Sports, One App"
                   width={960}
                   height={640}

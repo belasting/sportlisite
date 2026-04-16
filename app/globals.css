@@ -12,6 +12,18 @@ html {
 
 body {
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better tap targets on mobile */
+button, a {
+  touch-action: manipulation;
+}
+
+/* Prevent text size adjustments on orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -46,5 +58,10 @@ body {
 
   .section-tag {
     @apply inline-block text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-4;
+  }
+
+  /* Safe area insets for notched phones */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
   }
 }

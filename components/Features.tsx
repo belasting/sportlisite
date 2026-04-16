@@ -258,11 +258,11 @@ export default function Features() {
               <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }} className="relative">
                 <Image
                   src="/kickbox.png"
-                  alt="Kickboxing — All Your Sports, One App"
+                  alt="Padel — All Your Sports, One App"
                   width={700}
                   height={480}
                   className="w-full object-cover rounded-3xl"
-                  style={{ height: "clamp(240px, 38vw, 460px)", objectPosition: "center" }}
+                  style={{ height: "clamp(240px, 38vw, 460px)", objectPosition: "center 25%" }}
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl pointer-events-none" />
@@ -270,7 +270,7 @@ export default function Features() {
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                   <div className="glass rounded-2xl px-4 py-2.5">
                     <p className="text-xs text-slate-500 font-medium">Sport</p>
-                    <p className="text-sm font-bold text-slate-800">Kickboxen · 30+ sporten</p>
+                    <p className="text-sm font-bold text-slate-800">Padel · 30+ sporten</p>
                   </div>
                   <div className="glass rounded-2xl px-3 py-2.5 flex items-center gap-2">
                     <span className="text-green-500 font-black text-base">✓</span>
