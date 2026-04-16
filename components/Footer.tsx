@@ -1,8 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Instagram, Twitter, Facebook, Youtube, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { Instagram, Twitter, Facebook, Youtube, Linkedin } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+const AppleIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+  </svg>
+);
+
+const GooglePlayIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.18 23.39C3.07 23.32 3 23.18 3 23V1C3 .82 3.07.68 3.18.61L13.54 12z" fill="#00D2FF"/>
+    <path d="M16.85 8.8L5.44 2.15 13.54 12z" fill="#0DE06A"/>
+    <path d="M5.44 21.85l11.41-6.65L13.54 12z" fill="#FF3D39"/>
+    <path d="M20.38 10.25l-3.53-2.06-3.31 3.81 3.31 3.81 3.54-2.06a2 2 0 000-3.5z" fill="#FFD400"/>
+  </svg>
+);
 
 const socials = [
   { icon: Instagram, label: "Instagram", color: "hover:text-pink-500 hover:border-pink-300" },
@@ -22,14 +38,15 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-6 gap-10">
           {/* Brand */}
           <div className="col-span-2">
-            <motion.div whileHover={{ scale: 1.04 }} className="flex items-center gap-2 mb-5 cursor-pointer">
-              <div className="w-9 h-9 bg-gradient-brand rounded-xl flex items-center justify-center shadow-lg">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-black text-white tracking-tight">
-                Sport<span className="text-orange-400">li</span>
-              </span>
-            </motion.div>
+            <motion.a href="/" whileHover={{ scale: 1.04 }} className="flex items-center mb-5 cursor-pointer">
+              <Image
+                src="/logo.png"
+                alt="Sportli"
+                height={38}
+                width={130}
+                className="object-contain brightness-0 invert"
+              />
+            </motion.a>
 
             <p className="text-slate-500 text-sm leading-relaxed mb-6">{f.tagline}</p>
 
@@ -48,24 +65,30 @@ export default function Footer() {
               ))}
             </div>
 
-            <div className="mt-6 flex flex-col gap-2">
-              {[
-                { icon: "🍎", label: t.hero.appStoreLabel, sub: t.hero.appStore },
-                { icon: "▶", label: t.hero.googlePlayLabel, sub: t.hero.googlePlay },
-              ].map((store) => (
-                <motion.a
-                  key={store.label}
-                  href="#download"
-                  whileHover={{ x: 4 }}
-                  className="flex items-center gap-2 text-xs text-slate-500 hover:text-slate-300 transition-colors"
-                >
-                  <span className="text-base">{store.icon}</span>
-                  <span>
-                    <span className="block text-[10px] text-slate-600">{store.sub}</span>
-                    <span className="font-semibold text-slate-400">{store.label}</span>
-                  </span>
-                </motion.a>
-              ))}
+            <div className="mt-6 flex flex-col gap-3">
+              <motion.a
+                href="#download"
+                whileHover={{ x: 4 }}
+                className="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 rounded-xl px-4 py-3 transition-colors"
+              >
+                <AppleIcon className="w-6 h-6 text-slate-300 shrink-0" />
+                <span>
+                  <span className="block text-[10px] text-slate-500">{t.hero.appStore}</span>
+                  <span className="font-semibold text-slate-300 text-sm">{t.hero.appStoreLabel}</span>
+                </span>
+              </motion.a>
+
+              <motion.a
+                href="#download"
+                whileHover={{ x: 4 }}
+                className="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 rounded-xl px-4 py-3 transition-colors"
+              >
+                <GooglePlayIcon className="w-6 h-6 shrink-0" />
+                <span>
+                  <span className="block text-[10px] text-slate-500">{t.hero.googlePlay}</span>
+                  <span className="font-semibold text-slate-300 text-sm">{t.hero.googlePlayLabel}</span>
+                </span>
+              </motion.a>
             </div>
           </div>
 
@@ -74,10 +97,13 @@ export default function Footer() {
             <div key={category}>
               <h4 className="text-white font-bold text-sm mb-4">{category}</h4>
               <ul className="space-y-2.5">
-                {(links as string[]).map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-slate-500 hover:text-slate-200 text-sm transition-colors duration-200">
-                      {link}
+                {(links as { text: string; href: string }[]).map((link) => (
+                  <li key={link.text}>
+                    <a
+                      href={link.href}
+                      className="text-slate-500 hover:text-slate-200 text-sm transition-colors duration-200"
+                    >
+                      {link.text}
                     </a>
                   </li>
                 ))}

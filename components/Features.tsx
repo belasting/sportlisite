@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 import {
   Heart,
   Users,
@@ -209,24 +210,79 @@ export default function Features() {
   return (
     <section id="features" ref={ref} className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
-          className="text-center mb-16"
-        >
-          <span className="section-tag bg-blue-50 text-blue-600 border border-blue-200">
-            {f.tag}
-          </span>
-          <h2 className="font-poppins text-4xl sm:text-5xl font-black text-slate-900 mt-2">
-            {f.headline1}{" "}
-            <span className="text-gradient">{f.headline2}</span>
-          </h2>
-          <p className="mt-4 text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            {f.sub}
-          </p>
-        </motion.div>
 
+        {/* Header with kickbox image */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-16">
+          {/* Left: text */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7 }}
+            className="flex-1 text-center lg:text-left"
+          >
+            <span className="section-tag bg-blue-50 text-blue-600 border border-blue-200">
+              {f.tag}
+            </span>
+            <h2 className="font-poppins text-4xl sm:text-5xl font-black text-slate-900 mt-2 leading-tight">
+              {f.headline1}{" "}
+              <span className="text-gradient">{f.headline2}</span>
+            </h2>
+            <p className="mt-4 text-lg text-slate-500 max-w-xl leading-relaxed">
+              {f.sub}
+            </p>
+
+            {/* Sport pills */}
+            <div className="mt-6 flex flex-wrap gap-2 justify-center lg:justify-start">
+              {["🥊 Kickboxen", "⚽ Voetbal", "🎾 Tennis", "🏃 Hardlopen", "🚴 Fietsen", "🏊 Zwemmen", "🏋️ Fitness", "🧘 Yoga"].map((sport) => (
+                <span
+                  key={sport}
+                  className="text-sm bg-slate-100 text-slate-600 px-3 py-1.5 rounded-full font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors cursor-default"
+                >
+                  {sport}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right: kickbox photo */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex-1 w-full max-w-lg lg:max-w-none"
+          >
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              {/* Glow */}
+              <div className="absolute inset-0 translate-x-2 translate-y-2 bg-gradient-to-br from-blue-400/20 to-orange-300/20 rounded-3xl blur-xl pointer-events-none" />
+
+              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.4 }} className="relative">
+                <Image
+                  src="/kickbox.png"
+                  alt="Kickboxing — All Your Sports, One App"
+                  width={700}
+                  height={480}
+                  className="w-full object-cover rounded-3xl"
+                  style={{ height: "clamp(240px, 38vw, 460px)", objectPosition: "center" }}
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl pointer-events-none" />
+                {/* Bottom label */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
+                  <div className="glass rounded-2xl px-4 py-2.5">
+                    <p className="text-xs text-slate-500 font-medium">Sport</p>
+                    <p className="text-sm font-bold text-slate-800">Kickboxen · 30+ sporten</p>
+                  </div>
+                  <div className="glass rounded-2xl px-3 py-2.5 flex items-center gap-2">
+                    <span className="text-green-500 font-black text-base">✓</span>
+                    <p className="text-xs font-bold text-slate-700">Match found</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Feature cards grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURE_META.map((meta, i) => {
             const item = f.items[i];

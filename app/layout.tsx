@@ -29,6 +29,10 @@ export const metadata: Metadata = {
     "sport partner vinden",
     "coaches",
   ],
+  icons: {
+    icon: "/icon.ico",
+    shortcut: "/icon.ico",
+  },
   openGraph: {
     title: "Sportli — Vind Jouw Sportmaatje",
     description: "Swipe right op fitness. Vind partners, coaches en community.",

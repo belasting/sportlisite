@@ -2,8 +2,34 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
+
+/* Proper NL flag */
+const FlagNL = () => (
+  <svg width="22" height="16" viewBox="0 0 22 16" xmlns="http://www.w3.org/2000/svg">
+    <rect width="22" height="16" rx="2" fill="#AE1C28" />
+    <rect y="5.33" width="22" height="5.34" fill="#fff" />
+    <rect y="10.67" width="22" height="5.33" fill="#21468B" />
+  </svg>
+);
+
+/* Proper GB/UK flag */
+const FlagGB = () => (
+  <svg width="22" height="16" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+    <rect width="60" height="40" rx="2" fill="#012169" />
+    {/* White diagonal saltire */}
+    <path d="M0 0L60 40M60 0L0 40" stroke="#fff" strokeWidth="11" />
+    {/* Red diagonal (offset St. Patrick's cross) */}
+    <path d="M0 0L60 40" stroke="#C8102E" strokeWidth="7" />
+    <path d="M60 0L0 40" stroke="#C8102E" strokeWidth="7" />
+    {/* White cross */}
+    <path d="M30 0V40M0 20H60" stroke="#fff" strokeWidth="15" />
+    {/* Red cross */}
+    <path d="M30 0V40M0 20H60" stroke="#C8102E" strokeWidth="9" />
+  </svg>
+);
 
 export default function Navbar() {
   const { t, lang, setLang } = useLanguage();
@@ -24,6 +50,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const toggleLang = () => setLang(lang === "en" ? "nl" : "en");
+
+  /* Show current language flag so users know which language they're in */
+  const CurrentFlag = lang === "nl" ? FlagNL : FlagGB;
+  const targetLabel = lang === "nl" ? "EN" : "NL";
+
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
@@ -35,18 +67,15 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
-        <motion.a
-          href="#"
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2"
-        >
-          <div className="w-8 h-8 bg-gradient-brand rounded-xl flex items-center justify-center shadow-md">
-            <Zap className="w-4 h-4 text-white" />
-          </div>
-          <span className="text-xl font-black tracking-tight">
-            <span className="text-gradient">Sport</span>
-            <span className="text-slate-800">li</span>
-          </span>
+        <motion.a href="/" whileHover={{ scale: 1.04 }} className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Sportli"
+            height={36}
+            width={130}
+            className="object-contain"
+            priority
+          />
         </motion.a>
 
         {/* Desktop links */}
@@ -65,25 +94,24 @@ export default function Navbar() {
 
         {/* Right cluster */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Language toggle */}
+          {/* Language toggle — shows current flag, label shows target language */}
           <motion.button
+            type="button"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setLang(lang === "en" ? "nl" : "en")}
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl border border-slate-200 hover:border-blue-300 text-slate-600 hover:text-blue-600 text-xs font-bold transition-all duration-200 bg-white/70 backdrop-blur-sm"
-            title="Switch language"
+            onClick={toggleLang}
+            aria-label={`Switch to ${targetLabel}`}
+            title={`Switch to ${targetLabel}`}
+            className="flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 hover:border-blue-300 text-slate-600 hover:text-blue-600 text-xs font-bold transition-all duration-200 bg-white/80 backdrop-blur-sm cursor-pointer select-none"
           >
-            <Globe className="w-3.5 h-3.5" />
-            {lang === "en" ? "🇳🇱 NL" : "🇬🇧 EN"}
+            <CurrentFlag />
+            <span>{targetLabel}</span>
           </motion.button>
 
           {/* CTA */}
           <motion.a
             href="#download"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 12px 28px rgba(37,99,235,0.35)",
-            }}
+            whileHover={{ scale: 1.05, boxShadow: "0 12px 28px rgba(37,99,235,0.35)" }}
             whileTap={{ scale: 0.97 }}
             className="px-5 py-2.5 bg-gradient-brand text-white font-bold text-sm rounded-full shadow-md"
           >
@@ -91,15 +119,19 @@ export default function Navbar() {
           </motion.a>
         </div>
 
-        {/* Mobile hamburger */}
+        {/* Mobile hamburger + lang */}
         <div className="md:hidden flex items-center gap-2">
           <button
-            onClick={() => setLang(lang === "en" ? "nl" : "en")}
-            className="p-1.5 rounded-lg border border-slate-200 text-xs font-bold text-slate-600 bg-white/70"
+            type="button"
+            onClick={toggleLang}
+            aria-label={`Switch to ${targetLabel}`}
+            className="flex items-center gap-1.5 p-2 rounded-lg border border-slate-200 bg-white/80 cursor-pointer"
           >
-            {lang === "en" ? "🇳🇱" : "🇬🇧"}
+            <CurrentFlag />
+            <span className="text-xs font-bold text-slate-600">{targetLabel}</span>
           </button>
           <button
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-xl text-slate-700 hover:bg-slate-100 transition-colors"
           >
@@ -124,7 +156,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-slate-700 font-semibold hover:text-blue-600 transition-colors"
+                  className="text-slate-700 font-semibold hover:text-blue-600 transition-colors py-1"
                 >
                   {link.label}
                 </a>
