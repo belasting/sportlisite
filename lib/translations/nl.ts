@@ -192,7 +192,7 @@ export const nl = {
   faq: {
     tag: "FAQ",
     headline1: "Vragen?",
-    headline2: "Wij hebben antwoorden.",
+    headline2: "Wij hebben de antwoorden.",
     sub: "Alles wat je moet weten over Sportli.",
     stillQ: "Nog vragen?",
     stillSub: "Ons supportteam is 24/7 beschikbaar en reageert doorgaans binnen een uur.",

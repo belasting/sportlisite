@@ -192,7 +192,7 @@ export const en = {
   faq: {
     tag: "FAQ",
     headline1: "Got Questions?",
-    headline2: "We've Got Answers.",
+    headline2: "We've Got The Answers.",
     sub: "Everything you need to know about Sportli.",
     stillQ: "Still have questions?",
     stillSub: "Our support team is available 24/7 and typically responds within an hour.",

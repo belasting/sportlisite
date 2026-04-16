@@ -123,11 +123,11 @@ export default function Hero() {
         />
       ))}
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-16 z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 lg:py-16 z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
 
           {/* ── LEFT: copy ── */}
-          <motion.div style={{ y: textY }}>
+          <motion.div style={{ y: textY }} className="order-1 lg:order-1">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -216,21 +216,21 @@ export default function Hero() {
 
           {/* ── RIGHT: photo + badges ── */}
           <motion.div
-            initial={{ opacity: 0, x: 60, scale: 0.92 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
             style={{ y: imgY }}
-            className="flex justify-center"
+            className="order-2 lg:order-2 w-full"
           >
-            {/* Wrapper: op desktop ruime padding voor badges, op mobiel gewoon 0 */}
-            <div className="relative w-full" style={{ maxWidth: "580px" }}>
+            {/* Desktop wrapper met ruimte voor uitstekende badges */}
+            <div className="relative xl:mx-16">
 
               {/* Glow */}
-              <div className="absolute inset-0 translate-x-4 translate-y-4 bg-gradient-to-br from-blue-400/25 to-orange-300/20 rounded-3xl blur-2xl pointer-events-none" />
+              <div className="absolute inset-0 translate-x-3 translate-y-3 bg-gradient-to-br from-blue-400/25 to-orange-300/20 rounded-3xl blur-2xl pointer-events-none" />
 
               {/* Photo */}
               <motion.div
-                whileHover={{ scale: 1.015 }}
+                whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.4 }}
                 className="relative rounded-3xl overflow-hidden shadow-2xl"
               >
@@ -240,12 +240,45 @@ export default function Hero() {
                   width={960}
                   height={640}
                   priority
-                  className="w-full h-auto object-cover"
-                  style={{ objectPosition: "center 30%" }}
+                  className="w-full object-cover"
+                  style={{
+                    height: "clamp(220px, 45vw, 520px)",
+                    objectPosition: "center 25%",
+                  }}
                 />
+
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+
+                {/* Mobile-only badges — klein, IN de foto */}
+                <div className="xl:hidden absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                  <motion.div
+                    animate={{ y: [-3, 3, -3] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="glass rounded-2xl px-3 py-2 flex items-center gap-2 shadow-lg"
+                  >
+                    <span className="text-lg">🔥</span>
+                    <div>
+                      <p className="text-[10px] text-slate-400 leading-none">Nieuwe Match!</p>
+                      <p className="text-xs font-bold text-slate-800 leading-none mt-0.5">Sarah liked you ❤️</p>
+                    </div>
+                  </motion.div>
+
+                  <motion.div
+                    animate={{ y: [3, -3, 3] }}
+                    transition={{ duration: 3.5, repeat: Infinity }}
+                    className="glass rounded-2xl px-3 py-2 flex items-center gap-2 shadow-lg"
+                  >
+                    <span className="text-lg">⭐</span>
+                    <div>
+                      <p className="text-xs font-bold text-slate-800 leading-none">4.4 / 5</p>
+                      <p className="text-[10px] text-slate-400 leading-none mt-0.5">App Store</p>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
 
-              {/* Floating badges — alleen op grote schermen */}
+              {/* Desktop-only floating badges buiten de foto */}
               {badges.map((badge) => (
                 <motion.div
                   key={badge.id}
