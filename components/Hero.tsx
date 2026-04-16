@@ -155,8 +155,8 @@ export default function Hero() {
               </div>
 
               <h1 className="font-poppins text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.0] mb-5 tracking-tight">
-                <span className="text-slate-900">{h.headline3}</span>{" "}
-                <span className="text-gradient">{h.headline4}</span>
+                <span className="block text-slate-900">{h.headline3}</span>
+                <span className="block text-gradient">{h.headline4}</span>
               </h1>
 
               <p className="text-lg sm:text-xl text-slate-500 mb-8 max-w-lg leading-relaxed">

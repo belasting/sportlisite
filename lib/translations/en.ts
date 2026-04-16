@@ -68,8 +68,8 @@ export const en = {
   },
   swipeDemo: {
     tag: "Try It Yourself",
-    headline1: "Swipe Your Way",
-    headline2: "to Fitness",
+    headline1: "Swipe To A",
+    headline2: "Sport Buddy!",
     sub: "It's as easy as swiping right. Sportli shows you athletes nearby who match your sport, schedule, and fitness level. Your perfect workout buddy is one swipe away.",
     step1title: "Swipe right to connect",
     step1desc: "Like someone's profile? Swipe right and see if it's a match.",

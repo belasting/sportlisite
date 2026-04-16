@@ -68,8 +68,8 @@ export const nl = {
   },
   swipeDemo: {
     tag: "Probeer het zelf",
-    headline1: "Swipe jouw weg",
-    headline2: "naar fitness",
+    headline1: "Swipe naar een",
+    headline2: "sportbuddy!",
     sub: "Zo makkelijk als swipen. Sportli toont sporters bij jou in de buurt die passen bij jouw sport, schema en niveau. Je perfecte trainingsmaatje is één swipe verwijderd.",
     step1title: "Swipe rechts om te verbinden",
     step1desc: "Vind je iemands profiel leuk? Swipe rechts en kijk of het een match is.",
