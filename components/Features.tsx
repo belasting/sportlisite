@@ -208,11 +208,11 @@ export default function Features() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="features" ref={ref} className="py-24 bg-white">
+    <section id="features" ref={ref} className="py-14 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header with kickbox image */}
-        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-16">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-16 mb-10 md:mb-16">
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -283,7 +283,7 @@ export default function Features() {
         </div>
 
         {/* Feature cards grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {FEATURE_META.map((meta, i) => {
             const item = f.items[i];
             return (

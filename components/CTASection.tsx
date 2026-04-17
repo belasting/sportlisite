@@ -23,7 +23,7 @@ export default function CTASection() {
   const c = t.cta;
 
   return (
-    <section id="download" className="py-28 relative overflow-hidden">
+    <section id="download" className="py-16 md:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900" />
 
       <motion.div
@@ -54,7 +54,7 @@ export default function CTASection() {
           <motion.div
             animate={{ scale: [1, 1.04, 1] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="inline-flex items-center gap-2 bg-white/15 text-white text-sm font-bold px-5 py-2.5 rounded-full mb-8 border border-white/25 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 bg-white/15 text-white text-sm font-bold px-5 py-2.5 rounded-full mb-5 md:mb-8 border border-white/25 backdrop-blur-sm"
           >
             <motion.span
               animate={{ scale: [1, 1.5, 1] }}
@@ -64,7 +64,7 @@ export default function CTASection() {
             {c.badge}
           </motion.div>
 
-          <h2 className="font-poppins text-5xl sm:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight">
+          <h2 className="font-poppins text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-5 sm:mb-6 leading-tight">
             {c.headline1}
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-amber-300 to-yellow-300">
@@ -74,16 +74,16 @@ export default function CTASection() {
             {c.headline3}
           </h2>
 
-          <p className="text-blue-100 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-blue-100 text-lg sm:text-xl mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed">
             {c.sub}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 md:mb-14">
             <motion.a
               href="#"
               whileHover={{ scale: 1.06, boxShadow: "0 20px 60px rgba(0,0,0,0.35)" }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-4 bg-white text-slate-900 px-8 py-5 rounded-2xl font-bold text-base shadow-2xl"
+              className="flex items-center gap-3 sm:gap-4 bg-white text-slate-900 px-5 py-4 sm:px-8 sm:py-5 rounded-2xl font-bold text-base shadow-2xl"
             >
               <AppleIcon />
               <div className="text-left">
@@ -96,7 +96,7 @@ export default function CTASection() {
               href="#"
               whileHover={{ scale: 1.06, boxShadow: "0 20px 60px rgba(0,0,0,0.35)" }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-4 bg-white/10 border border-white/25 text-white px-8 py-5 rounded-2xl font-bold text-base backdrop-blur-sm"
+              className="flex items-center gap-3 sm:gap-4 bg-white/10 border border-white/25 text-white px-5 py-4 sm:px-8 sm:py-5 rounded-2xl font-bold text-base backdrop-blur-sm"
             >
               <GooglePlayIcon />
               <div className="text-left">
@@ -106,7 +106,7 @@ export default function CTASection() {
             </motion.a>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-blue-200 text-sm">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-blue-200 text-sm">
             {c.trustItems.map((item) => (
               <span key={item} className="font-medium">{item}</span>
             ))}
@@ -117,7 +117,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
             viewport={{ once: true }}
-            className="mt-12 flex flex-wrap justify-center gap-8"
+            className="mt-8 md:mt-12 flex flex-wrap justify-center gap-4 sm:gap-8"
           >
             {[c.appStoreRating, c.playRating].map((r) => (
               <div

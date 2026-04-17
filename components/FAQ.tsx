@@ -17,7 +17,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     >
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between px-6 py-5 text-left bg-white"
+        className="w-full flex items-center justify-between px-4 py-4 sm:px-6 sm:py-5 text-left bg-white"
       >
         <span className="font-semibold text-slate-800 pr-4 leading-snug">{q}</span>
         <motion.div
@@ -40,7 +40,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-5 text-slate-500 text-sm leading-relaxed border-t border-slate-100 pt-4 bg-blue-50/30">
+            <div className="px-4 pb-4 sm:px-6 sm:pb-5 text-slate-500 text-sm leading-relaxed border-t border-slate-100 pt-3 sm:pt-4 bg-blue-50/30">
               {a}
             </div>
           </motion.div>
@@ -55,14 +55,14 @@ export default function FAQ() {
   const f = t.faq;
 
   return (
-    <section id="faq" className="py-24 bg-white">
+    <section id="faq" className="py-14 md:py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
           <span className="section-tag bg-green-50 text-green-600 border border-green-200">
             {f.tag}

@@ -102,7 +102,7 @@ export default function SportliPlus() {
   ];
 
   return (
-    <section id="pricing" className="py-24 relative overflow-hidden bg-slate-950">
+    <section id="pricing" className="py-14 md:py-24 relative overflow-hidden bg-slate-950">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-blue-950/40 to-slate-950" />
       <motion.div
@@ -130,7 +130,7 @@ export default function SportliPlus() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
           <span className="inline-flex items-center gap-2 bg-orange-500/20 text-orange-300 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-orange-500/30 mb-4">
             <Zap className="w-3 h-3" />
@@ -180,7 +180,7 @@ export default function SportliPlus() {
         </motion.div>
 
         {/* Plans grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.id}
@@ -266,19 +266,19 @@ export default function SportliPlus() {
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-2.5 flex-1 mb-6">
+                <ul className="space-y-2 flex-1 mb-6">
                   {plan.features.map((f) => (
-                    <li key={f.text} className="flex items-start gap-2.5">
+                    <li key={f.text} className="flex items-start gap-2">
                       {f.included ? (
                         <div className={`w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-gradient-to-br ${plan.accentFrom} ${plan.accentTo}`}>
                           <Check className="w-2.5 h-2.5 text-white" />
                         </div>
                       ) : (
-                        <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-slate-800">
-                          <X className="w-2.5 h-2.5 text-slate-600" />
+                        <div className="w-4 h-4 rounded-full flex items-center justify-center shrink-0 mt-0.5 bg-slate-800/60">
+                          <X className="w-2.5 h-2.5 text-slate-500" />
                         </div>
                       )}
-                      <span className={`text-sm leading-snug ${f.included ? "text-slate-300" : "text-slate-600"}`}>
+                      <span className={`text-sm leading-snug ${f.included ? "text-slate-300" : "text-slate-600 line-through decoration-slate-600/50"}`}>
                         {f.text}
                       </span>
                     </li>

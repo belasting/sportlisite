@@ -182,10 +182,10 @@ export default function SwipeDemo() {
   return (
     <section
       id="swipe-demo"
-      className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/40 to-orange-50/40 overflow-hidden"
+      className="py-14 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50/40 to-orange-50/40 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}

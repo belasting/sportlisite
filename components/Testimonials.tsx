@@ -95,13 +95,13 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="testimonials" ref={ref} className="py-24 bg-slate-50">
+    <section id="testimonials" ref={ref} className="py-14 md:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-14"
+          className="text-center mb-8 md:mb-14"
         >
           <span className="section-tag bg-purple-50 text-purple-600 border border-purple-200">
             {ts.tag}
@@ -115,7 +115,7 @@ export default function Testimonials() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {TESTIMONIAL_DATA.map((testimony, i) => (
             <motion.div
               key={testimony.name}
@@ -123,14 +123,14 @@ export default function Testimonials() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.55, delay: i * 0.08 }}
               whileHover={{ y: -6, boxShadow: "0 20px 50px rgba(0,0,0,0.09)" }}
-              className="bg-white rounded-3xl p-6 shadow-sm transition-all duration-300 flex flex-col"
+              className="bg-white rounded-3xl p-5 sm:p-6 shadow-sm transition-all duration-300 flex flex-col overflow-hidden w-full"
             >
               <Stars rating={testimony.rating} />
               <p className="text-slate-600 text-sm leading-relaxed flex-1 mb-5">
                 &ldquo;{testimony.quote}&rdquo;
               </p>
               <div className="h-px bg-slate-100 mb-4" />
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                 <div
                   className={`w-12 h-12 bg-gradient-to-br ${testimony.gradient} rounded-2xl flex items-center justify-center text-2xl shadow-md shrink-0`}
                 >
@@ -142,7 +142,7 @@ export default function Testimonials() {
                     {testimony.role} · {testimony.location}
                   </p>
                 </div>
-                <span className="text-xs font-semibold bg-blue-50 text-blue-600 px-2.5 py-1 rounded-full shrink-0">
+                <span className="text-xs font-semibold bg-blue-50 text-blue-600 px-2 py-1 rounded-full shrink-0 hidden sm:inline-block">
                   {testimony.sport}
                 </span>
               </div>
@@ -154,7 +154,7 @@ export default function Testimonials() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.6 }}
-          className="mt-14 flex flex-wrap justify-center gap-8 text-slate-500 text-sm"
+          className="mt-8 md:mt-14 flex flex-wrap justify-center gap-4 sm:gap-8 text-slate-500 text-sm"
         >
           {ts.trustItems.map((item) => (
             <div key={item.text} className="flex items-center gap-2 font-medium">

@@ -89,11 +89,11 @@ export default function Stats() {
   ];
 
   return (
-    <section className="py-20 bg-white" ref={ref}>
+    <section className="py-12 md:py-20 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent mb-16" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-200 to-transparent mb-8 md:mb-16" />
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
@@ -101,15 +101,15 @@ export default function Stats() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               whileHover={{ y: -5 }}
-              className={`relative bg-gradient-to-br ${stat.bg} border ${stat.border} rounded-3xl p-6 text-center overflow-hidden group cursor-default`}
+              className={`relative bg-gradient-to-br ${stat.bg} border ${stat.border} rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center overflow-hidden group cursor-default`}
             >
               <motion.div
                 whileHover={{ scale: 1.15, rotate: 5 }}
-                className="text-4xl mb-3 block"
+                className="text-3xl sm:text-4xl mb-2 sm:mb-3 block"
               >
                 {stat.icon}
               </motion.div>
-              <div className={`text-4xl font-black ${stat.color} mb-1`}>
+              <div className={`text-2xl sm:text-4xl font-black ${stat.color} mb-1`}>
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               </div>
               <p className="text-slate-500 text-sm font-medium">{stat.label}</p>
@@ -118,7 +118,7 @@ export default function Stats() {
           ))}
         </div>
 
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-orange-200 to-transparent mt-16" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-orange-200 to-transparent mt-8 md:mt-16" />
       </div>
     </section>
   );
