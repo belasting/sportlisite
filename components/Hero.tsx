@@ -21,66 +21,67 @@ const GooglePlayIcon = () => (
   </svg>
 );
 
-const desktopBadges = [
+const BADGES = [
   {
     id: "match",
-    className: "top-[14%] left-4",
+    // mobile: inside card top-left · sm+: spills outside left edge
+    className: "-top-4 -left-3 sm:top-[10%] sm:-left-4 lg:-left-7",
     delay: 0,
-    floatY: [-6, 6, -6],
+    floatY: [-5, 5, -5],
     content: (
-      <div className="flex items-center gap-3">
-        <div className="w-11 h-11 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">🔥</div>
+      <div className="flex items-center gap-1.5 sm:gap-2.5">
+        <div className="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-br from-pink-500 to-rose-500 rounded-lg sm:rounded-xl flex items-center justify-center text-sm sm:text-lg shadow-md shrink-0">🔥</div>
         <div>
-          <p className="text-[11px] text-slate-400 font-medium leading-none mb-1">Nieuwe Match!</p>
-          <p className="text-sm font-bold text-slate-800 leading-none">Sarah liked you ❤️</p>
+          <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium leading-none mb-0.5">Nieuwe Match!</p>
+          <p className="text-[11px] sm:text-[13px] font-bold text-slate-800 leading-none">Sarah liked you ❤️</p>
         </div>
       </div>
     ),
   },
   {
     id: "active",
-    className: "top-[14%] right-4",
-    delay: 0.6,
-    floatY: [6, -6, 6],
+    className: "-top-4 -right-3 sm:top-[10%] sm:-right-4 lg:-right-7",
+    delay: 0.55,
+    floatY: [5, -5, 5],
     content: (
-      <div className="flex items-center gap-2.5">
+      <div className="flex items-center gap-1.5 sm:gap-2">
         <div className="relative shrink-0">
-          <div className="w-11 h-11 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center text-xl shadow-md">👥</div>
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white" />
+          <div className="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-lg sm:rounded-xl flex items-center justify-center text-sm sm:text-lg shadow-md">👥</div>
+          <span className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-2.5 h-2.5 sm:w-3.5 sm:h-3.5 bg-green-500 rounded-full border-2 border-white" />
         </div>
         <div>
-          <p className="text-sm font-bold text-slate-800 leading-none">+2.400</p>
-          <p className="text-[11px] text-slate-400 leading-none mt-0.5">sporters NL</p>
+          <p className="text-[11px] sm:text-[13px] font-bold text-slate-800 leading-none">+2.400</p>
+          <p className="text-[9px] sm:text-[10px] text-slate-400 leading-none mt-0.5">sporters NL</p>
         </div>
       </div>
     ),
   },
   {
     id: "goal",
-    className: "bottom-[18%] left-4",
-    delay: 1.2,
-    floatY: [-5, 8, -5],
+    className: "-bottom-4 -left-3 sm:bottom-[18%] sm:-left-4 lg:-left-7",
+    delay: 1.1,
+    floatY: [-4, 6, -4],
     content: (
-      <div className="flex items-center gap-3">
-        <div className="w-11 h-11 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">🏆</div>
+      <div className="flex items-center gap-1.5 sm:gap-2.5">
+        <div className="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-br from-amber-400 to-orange-500 rounded-lg sm:rounded-xl flex items-center justify-center text-sm sm:text-lg shadow-md shrink-0">🏆</div>
         <div>
-          <p className="text-[11px] text-slate-400 font-medium leading-none mb-1">Doel behaald!</p>
-          <p className="text-sm font-bold text-slate-800 leading-none">10 km voltooid 🎉</p>
+          <p className="text-[9px] sm:text-[10px] text-slate-400 font-medium leading-none mb-0.5">Doel behaald!</p>
+          <p className="text-[11px] sm:text-[13px] font-bold text-slate-800 leading-none">10 km voltooid 🎉</p>
         </div>
       </div>
     ),
   },
   {
     id: "rating",
-    className: "bottom-[18%] right-4",
-    delay: 1.8,
-    floatY: [5, -7, 5],
+    className: "-bottom-4 -right-3 sm:bottom-[18%] sm:-right-4 lg:-right-7",
+    delay: 1.65,
+    floatY: [4, -6, 4],
     content: (
-      <div className="flex items-center gap-2.5">
-        <div className="w-11 h-11 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center text-xl shadow-md shrink-0">⭐</div>
+      <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="w-7 h-7 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg sm:rounded-xl flex items-center justify-center text-sm sm:text-lg shadow-md shrink-0">⭐</div>
         <div>
-          <p className="text-sm font-bold text-slate-800 leading-none">4.4 / 5</p>
-          <p className="text-[11px] text-slate-400 leading-none mt-0.5">App Store</p>
+          <p className="text-[11px] sm:text-[13px] font-bold text-slate-800 leading-none">4.4 / 5</p>
+          <p className="text-[9px] sm:text-[10px] text-slate-400 leading-none mt-0.5">App Store</p>
         </div>
       </div>
     ),
@@ -92,13 +93,13 @@ export default function Hero() {
   const h = t.hero;
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref });
-  const imgY = useTransform(scrollYProgress, [0, 1], [0, 60]);
-  const textY = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const imgY = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -20]);
 
   return (
     <section
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50 lg:min-h-screen"
+      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-orange-50"
     >
       {/* Background blobs */}
       <motion.div
@@ -126,48 +127,11 @@ export default function Hero() {
         />
       ))}
 
-      {/* ═══ DESKTOP: image absolutely covers right 52% ═══ */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ y: imgY }}
-        className="absolute top-0 right-0 bottom-0 w-[52%] hidden lg:block"
-      >
-        <Image
-          src="/padel.png"
-          alt="Vind je sportmaatje via Sportli"
-          fill
-          priority
-          className="object-cover"
-          style={{ objectPosition: "center 20%" }}
-        />
-        {/* Gradient: fade left edge into background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-50/60 via-transparent to-transparent pointer-events-none" />
-        {/* Gradient: dark bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+      {/* ═══ MAIN GRID ═══ */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 xl:gap-16 items-center pt-28 pb-16 lg:pt-0 lg:pb-0">
 
-        {/* Floating badges — inside the image */}
-        {desktopBadges.map((badge) => (
-          <motion.div
-            key={badge.id}
-            initial={{ opacity: 0, scale: 0.75 }}
-            animate={{ opacity: 1, scale: 1, y: badge.floatY }}
-            transition={{
-              opacity: { delay: 0.6 + badge.delay, duration: 0.4 },
-              scale: { delay: 0.6 + badge.delay, duration: 0.4, type: "spring", stiffness: 200 },
-              y: { duration: 4.5 + badge.delay * 0.4, repeat: Infinity, ease: "easeInOut", delay: badge.delay },
-            }}
-            className={`absolute glass rounded-2xl px-4 py-3 shadow-xl z-10 whitespace-nowrap ${badge.className}`}
-          >
-            {badge.content}
-          </motion.div>
-        ))}
-      </motion.div>
-
-      {/* ═══ CONTENT WRAPPER (max-w-7xl, left half on desktop) ═══ */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 lg:min-h-screen lg:flex lg:items-center">
-        <div className="lg:w-1/2 pt-24 pb-8 lg:pt-0 lg:pb-0 lg:py-20 lg:pr-12 xl:pr-16">
+          {/* ── LEFT: Text ── */}
           <motion.div style={{ y: textY }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -250,58 +214,77 @@ export default function Hero() {
               </motion.div>
             </motion.div>
           </motion.div>
+
+          {/* ── RIGHT: Contained image card + floating badges ── */}
+          <motion.div
+            style={{ y: imgY }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex items-center justify-center"
+          >
+            {/*
+              mx-8 sm:mx-12 lg:mx-6 gives room so badges at -left-4 / -right-4
+              don't clip against the section's overflow-hidden on small screens.
+            */}
+            <div className="relative w-full mx-8 sm:mx-12 lg:mx-0">
+
+              {/* 3D perspective wrapper — tilt the card */}
+              <div style={{ perspective: "1100px" }}>
+                <motion.div
+                  initial={{ rotateY: -12, rotateX: 5, opacity: 0 }}
+                  animate={{ rotateY: -5, rotateX: 2, opacity: 1 }}
+                  whileHover={{ rotateY: -1, rotateX: 0.5, transition: { duration: 0.4 } }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="relative rounded-3xl overflow-hidden shadow-[0_28px_70px_rgba(0,0,0,0.18)]"
+                >
+                  <Image
+                    src="/padel.png"
+                    alt="Vind je sportmaatje via Sportli"
+                    width={720}
+                    height={560}
+                    priority
+                    sizes="(max-width: 640px) 75vw, (max-width: 1024px) 60vw, 46vw"
+                    className="w-full object-cover object-[center_20%]"
+                    style={{ height: "clamp(260px, 44vw, 600px)" }}
+                  />
+                  {/* Bottom dark fade */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                  {/* Subtle left glow for 3D depth */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-transparent to-transparent pointer-events-none" />
+                </motion.div>
+              </div>
+
+              {/* Floating badges — positioned relative to outer div, so they overflow the card */}
+              {BADGES.map((badge) => (
+                <motion.div
+                  key={badge.id}
+                  initial={{ opacity: 0, scale: 0.75 }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    y: badge.floatY,
+                  }}
+                  transition={{
+                    opacity: { delay: 0.7 + badge.delay, duration: 0.4 },
+                    scale: { delay: 0.7 + badge.delay, duration: 0.4, type: "spring", stiffness: 220 },
+                    y: { duration: 4 + badge.delay * 0.35, repeat: Infinity, ease: "easeInOut", delay: badge.delay },
+                  }}
+                  className={`absolute glass rounded-xl sm:rounded-2xl px-2 py-1.5 sm:px-3 sm:py-2.5 shadow-xl z-20 whitespace-nowrap ${badge.className}`}
+                >
+                  {badge.content}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* ═══ MOBILE: image below text ═══ */}
-      <div className="relative lg:hidden mx-4 sm:mx-6 mb-10 rounded-3xl overflow-hidden shadow-2xl">
-        {/* Glow */}
-        <div className="absolute inset-0 translate-x-2 translate-y-2 bg-gradient-to-br from-blue-400/20 to-orange-300/20 rounded-3xl blur-xl pointer-events-none" />
-        <div className="relative rounded-3xl overflow-hidden">
-          <Image
-            src="/padel.png"
-            alt="Vind je sportmaatje via Sportli"
-            width={960}
-            height={640}
-            priority
-            className="w-full object-cover"
-            style={{ height: "clamp(220px, 58vw, 360px)", objectPosition: "center 20%" }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent pointer-events-none" />
-
-          {/* Mobile badges inside photo */}
-          <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end gap-2">
-            <motion.div
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ duration: 3, repeat: Infinity }}
-              className="glass rounded-2xl px-3 py-2 flex items-center gap-2 shadow-lg"
-            >
-              <span className="text-lg">🔥</span>
-              <div>
-                <p className="text-[10px] text-slate-400 leading-none">Nieuwe Match!</p>
-                <p className="text-xs font-bold text-slate-800 leading-none mt-0.5">Sarah liked you ❤️</p>
-              </div>
-            </motion.div>
-            <motion.div
-              animate={{ y: [3, -3, 3] }}
-              transition={{ duration: 3.5, repeat: Infinity }}
-              className="glass rounded-2xl px-3 py-2 flex items-center gap-2 shadow-lg"
-            >
-              <span className="text-lg">⭐</span>
-              <div>
-                <p className="text-xs font-bold text-slate-800 leading-none">4.4 / 5</p>
-                <p className="text-[10px] text-slate-400 leading-none mt-0.5">App Store</p>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator — desktop only */}
+      {/* Scroll indicator */}
       <motion.div
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2.5, repeat: Infinity }}
-        className="absolute bottom-8 left-[25%] -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-slate-400 z-20"
+        className="absolute bottom-8 left-1/2 lg:left-[25%] -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 z-20"
       >
         <p className="text-xs font-medium tracking-widest uppercase">{h.scrollHint}</p>
         <ChevronDown className="w-5 h-5" />
